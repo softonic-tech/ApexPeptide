@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f9ff">
+  <title>Apex Peptides Australia</title>
+  <style>
+    :root{--navy:#071d43;--blue:#1263dc;--cyan:#17b8eb;--line:#bcd2f0;--ice:#f4f9ff;--max:1540px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--navy);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff}
+    a{color:inherit;text-decoration:none}button{font:inherit}svg{display:block}
+    .site-header{position:relative;z-index:10;background:rgba(255,255,255,.95);border-bottom:1px solid #e5edf8}
+    .header-inner{max-width:var(--max);min-height:100px;margin:auto;padding:0 clamp(20px,4.2vw,64px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px}
+    .brand{display:inline-flex;align-items:center;gap:9px;width:max-content;color:#1156b5}
+    .brand-mark{width:32px;height:51px;color:#1467ce}
+    .brand-name{display:block;font-size:30px;font-weight:850;line-height:.9;letter-spacing:.055em}.brand-sub{display:block;margin-top:6px;font-size:9px;letter-spacing:.43em;font-weight:750}
+    .nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,39px);white-space:nowrap;font-size:14px;font-weight:590}
+    .nav a{padding:32px 0;transition:color .2s}.nav a:hover,.nav a.active{color:var(--blue)}.nav a.active{box-shadow:inset 0 -2px var(--blue)}
+    .actions{display:flex;justify-content:flex-end;align-items:center;gap:13px}.icon-link,.menu-button{width:43px;height:43px;display:grid;place-items:center;border:0;background:transparent;border-radius:12px;cursor:pointer}.icon-link:hover,.menu-button:hover{background:#eef5ff}.icon-link svg,.menu-button svg{width:21px;height:21px;stroke:var(--navy);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.cart{background:#f2f6ff}.menu-button{display:none}
+    .hero{position:relative;isolation:isolate;min-height:calc(100svh - 100px);overflow:hidden;background:#f4f9ff url('hero-background-photo.png') center center/100% 100% no-repeat}
+    .hero-inner{max-width:var(--max);min-height:calc(100svh - 100px);margin:auto;padding:60px clamp(20px,4.2vw,64px) 115px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);align-items:center;position:relative}
+    .hero-copy{position:relative;z-index:3;padding-bottom:20px}
+    h1{margin:0;font-size:clamp(43px,4.25vw,75px);line-height:1.03;letter-spacing:-.055em;font-weight:870;text-wrap:nowrap}
+    h1 span{display:block}h1 .blue{font-size:.85em;letter-spacing:-.058em;background:linear-gradient(93deg,#0f62d4 3%,#17b7e9 76%);color:transparent;background-clip:text;-webkit-background-clip:text}
+    .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}.button{min-height:60px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;gap:18px;border:1px solid var(--blue);border-radius:9px;font-size:15px;font-weight:700;transition:transform .2s,box-shadow .2s}.button:hover{transform:translateY(-3px);box-shadow:0 12px 25px #0f62d426}.button.primary{background:var(--blue);color:white;box-shadow:0 10px 25px #0f62d429}.button.secondary{background:#ffffffbf;color:var(--navy)}.button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+    .hero-art{position:absolute;inset:0 0 0 42%;z-index:1;pointer-events:none}.orbit{display:none;position:absolute;width:min(96%,900px);right:1%;top:9%;opacity:.8;animation:arrive 1s ease-out both}.vials{position:absolute;width:min(95%,800px);max-height:none;object-fit:contain;right:12%;bottom:20%;filter:drop-shadow(0 34px 26px #17467525);animation:rise 1s .12s ease-out both}.plinth{display:none;position:absolute;bottom:-45px;right:-12%;width:119%;height:150px;border-radius:50% 50% 8px 8px/50px 50px 8px 8px;background:linear-gradient(180deg,#ffffff 0%,#fafdff 32%,#e5f1ff 68%,#d1e8ff);box-shadow:0 18px 28px #5c9edc26;z-index:-1}
+    .benefits{position:absolute;left:clamp(20px,4.2vw,64px);right:clamp(20px,4.2vw,64px);bottom:42px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;background:#ffffffd9;border:1px solid #b9d3f2;border-radius:15px;min-height:84px;box-shadow:0 10px 35px #5d92c511;backdrop-filter:blur(10px);z-index:4}.benefit{display:flex;align-items:center;justify-content:center;gap:14px;padding:13px 14px;font-size:clamp(10px,.95vw,13px);font-weight:750;letter-spacing:.07em;white-space:nowrap}.benefit+.benefit{border-left:1px solid #bfd2eb}.benefit img{width:28px;height:28px;flex:none}
+    @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}@keyframes arrive{from{opacity:0;transform:scale(.95)}to{opacity:.8;transform:scale(1)}}
+    @media(max-width:1080px){.header-inner{grid-template-columns:auto 1fr}.nav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:10px 24px 20px;background:white;box-shadow:0 16px 30px #1b4c8320}.nav.open{display:flex}.nav a{padding:13px}.nav a.active{box-shadow:none}.menu-button{display:grid}.hero-inner{grid-template-columns:1fr 1fr}.hero-art{left:39%}h1{font-size:clamp(40px,5.1vw,62px)}.benefit{white-space:normal;text-align:left}}
+    @media(max-width:700px){.header-inner{min-height:68px;padding:0 18px;gap:8px}.brand-mark{width:25px;height:38px}.brand-name{font-size:24px}.brand-sub{font-size:7px}.actions{gap:2px}.icon-link,.menu-button{width:39px;height:39px}.account{display:none}.hero{min-height:auto;background-size:auto 100%;background-position:65% center}.hero-inner{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:48px 22px 28px}.hero-copy{padding:0}h1{font-size:clamp(37px,9.2vw,64px);line-height:1.06;letter-spacing:-.055em;white-space:normal;text-wrap:balance}h1 .blue{font-size:.82em;white-space:nowrap}.cta-row{margin-top:26px;display:grid;grid-template-columns:1fr;gap:10px}.button{min-height:54px;width:100%;justify-content:space-between}.hero-art{position:relative;inset:auto;height:clamp(300px,86vw,540px);margin:22px -22px 0;overflow:hidden}.orbit{width:110%;right:-5%;top:1%}.vials{width:96%;height:91%;max-height:none;right:2%;bottom:16%}.plinth{bottom:-15px;right:-8%;width:116%;height:70px}.benefits{position:relative;inset:auto;margin-top:16px;display:block;min-height:0;border-radius:12px}.benefit{justify-content:flex-start;min-height:62px;padding:12px 18px;font-size:11px;white-space:normal;letter-spacing:.045em}.benefit+.benefit{border-left:0;border-top:1px solid #d7e5f4}.benefit img{width:24px;height:24px}}
+    @media(max-width:390px){.icon-link.search{display:none}h1{font-size:9vw}.brand-name{font-size:21px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Replace the wordmark below with the approved Apex SVG/logo when available. -->
+      <a href="/" class="brand" aria-label="Apex Peptides home"><svg class="brand-mark" viewBox="0 0 36 54" fill="none" aria-hidden="true"><path d="M10 2c23 8 23 18 6 26C-1 36 0 44 24 52M25 2C2 10 2 18 19 27c17 8 16 17-8 25" stroke="currentColor" stroke-width="2.3"/><path d="M12 9h12M8 18h19M8 36h19M12 45h13" stroke="currentColor" stroke-width="1.6"/></svg><span><span class="brand-name">APEX</span><span class="brand-sub">PEPTIDES</span></span></a>
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation"><a class="active" href="/">Home</a><a href="#catalog">Product</a><a href="#about">About Us</a><a href="#quality-process">Research &amp; Compliance</a><a href="#contact">Contact</a></nav>
+      <div class="actions"><a href="#search" class="icon-link search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 5 5"/></svg></a><a href="#account" class="icon-link account" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.5"/><path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"/></svg></a><a href="#cart" class="icon-link cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M2 3h2l2.3 12h12.4L21 6H5"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></a><button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title"><div class="hero-inner"><div class="hero-copy"><h1 id="hero-title"><span>APEX PEPTIDES</span><span>AUSTRALIA</span><span class="blue">PREMIUM RESEARCH</span></h1><div class="cta-row"><a class="button primary" href="#catalog">View Catalog <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15m-6-6 6 6-6 6"/></svg></a><a class="button secondary" href="#quality-process">Our Quality Process <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15m-6-6 6 6-6 6"/></svg></a></div></div><div class="hero-art" aria-label="Apex Peptides research vials"><img class="orbit" src="assets/orbit-accent.svg" alt="" loading="eager"><div class="plinth"></div><img class="vials" src="assets/apex-vials-transparent.png" alt="Apex Peptides BPC-157 10mg, GHK-Cu 100mg and Glow-70 10mg research vials" loading="eager"></div><div class="benefits" aria-label="Apex benefits"><div class="benefit"><img src="assets/price-tag.svg" alt="">MOST AFFORDABLE IN AUSTRALIA</div><div class="benefit"><img src="assets/shipping.svg" alt="">DISPATCHED WITHIN 24HRS</div><div class="benefit"><img src="assets/quality-shield.svg" alt="">99% PURITY TESTED</div></div></div></section>
+  </main>
+  <script>
+    const menu = document.querySelector('.menu-button');
+    const nav = document.querySelector('.nav');
+    menu.addEventListener('click', () => {const open = nav.classList.toggle('open');menu.setAttribute('aria-expanded', String(open));menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');});
+    nav.addEventListener('click', e => {if(e.target.closest('a')) {nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');}});
+  </script>
+</body>
+</html>
