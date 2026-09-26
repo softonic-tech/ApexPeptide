@@ -3,11 +3,29 @@ const mobileNav = document.querySelector('.mh-nav');
 const mobileNavToggle = document.querySelector('.mh-menu');
 
 if (mobileNav && mobileNavToggle) {
+  const panel = mobileNav.querySelector('.mh-nav-panel');
+  let closeTimer;
+  const menuHeight = () => (panel ? panel.scrollHeight : 0);
   const setMobileNav = (open) => {
+    window.clearTimeout(closeTimer);
     mobileNav.classList.toggle('open', open);
+    mobileNavToggle.classList.toggle('open', open);
     mobileNavToggle.setAttribute('aria-expanded', String(open));
     mobileNavToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) {
+      mobileNav.removeAttribute('inert');
+      mobileNav.style.height = `${menuHeight()}px`;
+    } else {
+      mobileNav.style.height = `${menuHeight()}px`;
+      mobileNav.getBoundingClientRect();
+      mobileNav.style.height = '0px';
+      closeTimer = window.setTimeout(() => mobileNav.setAttribute('inert', ''), 400);
+    }
   };
+
+  window.addEventListener('resize', () => {
+    if (mobileNav.classList.contains('open')) mobileNav.style.height = `${menuHeight()}px`;
+  });
 
   mobileNavToggle.addEventListener('click', () => {
     setMobileNav(!mobileNav.classList.contains('open'));
